@@ -9,3 +9,12 @@ flask
 pep8
 # Fabric
 SQLAlchemy
+Flask-Bootstrap
+flasgger
+flask-cors
+gunicorn
+Jinja2
+mysqlclient
+requests
+requests-oauthlib
+Werkzeug
