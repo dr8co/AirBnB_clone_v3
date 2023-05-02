@@ -18,7 +18,7 @@ class HBNBCommand(cmd.Cmd):
         '** no instance found **',
         '** attribute name missing **',
         '** value missing **',
-        ]
+    ]
 
     def preloop(self):
         """
@@ -245,11 +245,11 @@ class HBNBCommand(cmd.Cmd):
         private: checks if the arguments input has a dictionary
         """
         if '{' and '}' in arg:
-            l = arg.split('{')[1]
-            l = l.split(', ')
-            l = list(s.split(':') for s in l)
+            lst = arg.split('{')[1]
+            lst = lst.split(', ')
+            lst = list(s.split(':') for s in lst)
             d = {}
-            for subl in l:
+            for subl in lst:
                 k = subl[0].strip('"\' {}')
                 v = subl[1].strip('"\' {}')
                 d[k] = v
@@ -377,6 +377,7 @@ class HBNBCommand(cmd.Cmd):
                     v(new_arg)
                     return
         self.default(arg)
+
 
 if __name__ == '__main__':
     """
