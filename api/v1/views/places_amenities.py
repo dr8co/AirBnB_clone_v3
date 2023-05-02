@@ -6,6 +6,7 @@ from api.v1.views import app_views
 from flask import abort, jsonify, request
 from models import storage, CNC
 from os import environ
+
 STORAGE_TYPE = environ.get('HBNB_TYPE_STORAGE')
 
 
@@ -29,7 +30,7 @@ def amenities_per_place(place_id=None):
                 response.append(storage.get('Amenity', amen))
         place_amenities = [
             obj.to_json() for obj in place_amenities
-            ]
+        ]
         return jsonify(place_amenities)
 
 
@@ -58,8 +59,8 @@ def amenity_to_place(place_id=None, amenity_id=None):
         return jsonify({}), 200
 
     if request.method == 'POST':
-        if (amenity_obj in place_obj.amenities or
-                amenity_obj.id in place_obj.amenities):
+        if (amenity_obj in place_obj.amenities or amenity_obj.id
+                in place_obj.amenities):
             return jsonify(amenity_obj.to_json()), 200
         if STORAGE_TYPE == 'db':
             place_obj.amenities.append(amenity_obj)

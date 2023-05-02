@@ -5,6 +5,7 @@
 from flask import Flask, render_template
 from models import storage
 import os
+
 app = Flask(__name__)
 
 
@@ -25,6 +26,7 @@ def filters_list():
     return render_template(
         "10-hbnb_filters.html",
         states=states, amenities=amenities)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

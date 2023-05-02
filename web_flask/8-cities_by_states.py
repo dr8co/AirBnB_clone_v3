@@ -5,6 +5,7 @@
 from flask import Flask, render_template
 from models import storage
 import os
+
 app = Flask(__name__)
 
 
@@ -24,5 +25,6 @@ def city_state_list():
     states = storage.all('State').values()
     return render_template("8-cities_by_states.html", states=states)
 
+
 if __name__ == '__main__':
-        app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000)

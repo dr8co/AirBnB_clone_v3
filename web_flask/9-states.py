@@ -5,6 +5,7 @@
 from flask import Flask, render_template
 from models import storage
 import os
+
 app = Flask(__name__)
 
 
@@ -40,7 +41,7 @@ def states_id(id):
             '9-states.html',
             state_id=state_id,
             condition="state_id")
-    except:
+    except BaseException:
         return render_template('9-states.html', condition="not_found")
 
 

@@ -76,7 +76,7 @@ class BaseModel:
         try:
             obj_to_str = json.dumps(obj_v)
             return obj_to_str is not None and isinstance(obj_to_str, str)
-        except:
+        except BaseException:
             return False
 
     def bm_update(self, attr_dict=None):
@@ -115,10 +115,10 @@ class BaseModel:
         bm_dict.pop('_sa_instance_state', None)
         bm_dict.update({
             '__class__': obj_class
-            })
+        })
         if not saving_file_storage and obj_class == 'User':
             bm_dict.pop('password', None)
-        return(bm_dict)
+        return (bm_dict)
 
     def __str__(self):
         """

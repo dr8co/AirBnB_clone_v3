@@ -3,6 +3,7 @@
     Sript that starts a Flask web application
  """
 from flask import Flask
+
 app = Flask(__name__)
 
 
@@ -40,9 +41,11 @@ def text_var_python(text="is cool"):
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def var_num(n):
-        """
-             function to display a variable, but only if an int
-        """
-        return "{} is a number".format(n)
+    """
+         function to display a variable, but only if an int
+    """
+    return "{} is a number".format(n)
+
+
 if __name__ == '__main__':
-        app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000)

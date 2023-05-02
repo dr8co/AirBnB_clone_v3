@@ -117,7 +117,7 @@ class HBNBCommand(cmd.Cmd):
         try:
             float(val)
             return True
-        except:
+        except BaseException:
             return False
 
     def __update_val(self, v):
